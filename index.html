@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minesweeper</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+    <link
+      rel="shortcut icon"
+      href="style/images/icons8-minesweeper-32v2.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body onload="init()">
+    <div class="curtain-shadow">
+      <header class="layout">
+        <h1 class="header red">minesweeper</h1>
+        <div class="list-container">
+          <ul class="banner list">
+            <li>
+              <div><span class="flags-left ui-icon green"></span></div>
+            </li>
+            <li>
+              <button
+                id="reset"
+                title="Reset Game"
+                class="cursor"
+                onclick="init()"
+              ></button>
+            </li>
+            <li>
+              <div><span class="green time ui-icon">000</span></div>
+            </li>
+          </ul>
+          <div class="user-tools">
+            <div><span class="lives-left ui-icon green"></span></div>
+            <div>
+              <button
+                class="safe-left ui-icon safe cursor help-tool green"
+                onclick="handleSafeClick(this)"
+              ></button>
+            </div>
+            <div>
+              <button
+                class="hints-left ui-icon hint cursor help-tool green"
+                onclick="handleHintClick(this)"
+              ></button>
+            </div>
+            <div>
+              <button class="edit cursor ui-icon" onclick="edit()"></button>
+            </div>
+            <div>
+              <button
+                title="Undo"
+                class="cursor help-tool ui-icon undo"
+                onclick="undo(this)"
+              ></button>
+            </div>
+            <div>
+              <button
+                class="ui-icon green board-size-modal"
+                onclick="openModal(this)"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="game-container">
+        <table class="board" oncontextmenu="event.preventDefault()"></table>
+      </main>
+      <div class="modal-container hide-modal">
+        <div class="modal board">
+          <label for="rowCount"
+            >rows :
+            <input
+              type="number"
+              id="rowCount"
+              name="rowCount"
+              min="4"
+              max="12"
+              placeholder="4"
+            />
+          </label>
+
+          <label for="colCount"
+            >columns :
+            <input
+              type="number"
+              id="colCount"
+              name="colCount"
+              min="4"
+              max="12"
+              placeholder="4"
+            />
+          </label>
+          <br />
+          <p>min : 4 / max : 12</p>
+          <div class="modal-btns">
+            <button onclick="updateBoardSize()">
+              <i class="fa-solid fa-check approve-btn"></i>
+            </button>
+            <button onclick="openModal()">
+              <i class="fa-solid fa-xmark decline-btn"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <footer class="green footer">
+        <p>designed and created by Elliot Sherman 2024</p>
+        <p>Coffee rights&reg;</p>
+      </footer>
+    </div>
+    <script src="js/ls.service.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/cells.js"></script>
+    <script src="js/minesweeper.js"></script>
+    <!-- <a target="_blank" href="https://icons8.com/icon/YUK6KElCnv0e/minesweeper">Minesweeper</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+  </body>
+</html>

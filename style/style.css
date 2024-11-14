@@ -1,0 +1,315 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: alarm-clock;
+  color: rgb(150, 185, 185);
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #0a5201, 0 0 0.5em #0a5201,
+    0 0 0.1em #0a5201, 0 10px 3px #000;
+}
+input[type="number"] {
+  all: unset;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  color: #00ffff;
+  background-color: #00ffff;
+}
+/* Here’s a suggested color palette for your neon theme:
+
+Flags: Neon Green (#39FF14)
+Mines: Neon Yellow (#FFFF00)
+Numbers: Neon Blue (#00FFFF)
+Background: Dark Gray or Black (#1A1A1A) */
+
+@font-face {
+  font-family: alarm-clock;
+  src: url(fonts/alarm_clock/alarm\ clock.ttf);
+}
+body {
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  background: url(./images/blackBrickWall.jpg) center fixed;
+  background-size: cover;
+}
+.layout {
+  max-width: 800px;
+  padding: 0 15px 0;
+}
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  /* color: white; */
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+button span::before {
+  margin-left: 20px;
+}
+.cursor {
+  cursor: pointer;
+}
+.cursor:disabled {
+  cursor: not-allowed;
+}
+.help-tools {
+  cursor: help;
+}
+.red {
+  color: rgb(255, 185, 185);
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444,
+    0 0 0.1em #ff4444, 0 10px 3px #000;
+}
+.green {
+  color: rgb(150, 185, 185);
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #0a5201, 0 0 0.5em #0a5201,
+    0 0 0.1em #0a5201, 0 10px 3px #000;
+}
+.violet {
+  color: #d79efd;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #520151, 0 0 0.5em #520151,
+    0 0 0.1em #520151, 0 10px 3px #000;
+}
+.yellow {
+  font-weight: 900; /* Required for solid icons */
+  color: #ffff20; /* Customize the color as needed */
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ffff00, 0 10px 3px #000;
+}
+.ui-icon {
+  font-size: 32px;
+}
+.flags-left::before {
+  content: "\f024"; /* Unicode for the flag icon in Font Awesome */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600; /* Required for solid icons */
+  color: #beff96; /* Neon green color */
+  margin-right: 16px; /* Space between icon and text */
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #39ff14, 0 10px 3px #000;
+}
+.hints-left::before {
+  content: "\f0eb"; /* Unicode for the lightbulb icon in Font Awesome */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900; /* Required for solid icons */
+  color: #ffeb7c; /* Customize the color as needed */
+  margin-right: 16px; /* Space between icon and text */
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ffff00, 0 10px 3px #000;
+}
+.lives-left::before {
+  content: "\f004"; /* Unicode for the heart icon in Font Awesome */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900; /* Required for solid icons */
+  color: rgb(255, 185, 185); /* Customize the color as needed */
+  margin-right: 16px; /* Space between icon and text */
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 10px 3px #000;
+}
+.safe-left::before {
+  content: "\f807"; /* Unicode for the shield icon in Font Awesome */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900; /* Required for solid icons */
+  color: #ffff20; /* Customize the color as needed */
+  margin-right: 16px; /* Space between icon and text */
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ffff00, 0 10px 3px #000;
+}
+.time::before {
+  content: "\f017";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 500; /* Required for solid icons */
+  color: #b1fcfc; /* Neon green color */
+  margin-right: 16px; /* Space between icon and text */
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #00ffff, 0 10px 3px #000;
+}
+.undo::before {
+  content: "\f0e2"; /* Unicode for the undo icon in Font Awesome */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900; /* Required for solid icons */
+  color: rgb(150, 185, 185);
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #39ff14, 0 10px 3px #000;
+}
+.edit::before {
+  content: "\f044"; /* Unicode for the edit icon in Font Awesome */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900; /* Required for solid icons */
+  color: rgb(150, 185, 185);
+  margin-right: 5px; /* Space between icon and text */
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #39ff14, 0 10px 3px #000;
+}
+.success::before {
+  content: "\f581"; /* Unicode for the edit icon in Font Awesome */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+.start::before {
+  content: "\f118"; /* Unicode for the edit icon in Font Awesome */
+  font-family: "Font Awesome 5 Free";
+}
+.fail::before {
+  content: "\f567"; /* Unicode for the edit icon in Font Awesome */
+  font-family: "Font Awesome 5 Free";
+}
+.mine {
+  border: 3px solid #ff4444;
+  border-radius: 5px;
+  box-shadow: 0 0 25px #ff4444, inset 0 0 0 #ff4444;
+  background-image: radial-gradient(#000000, #3f3f3f84);
+  width: 48px;
+  height: 48px;
+}
+.mine::before {
+  content: "\f1e2"; /* Unicode for the edit icon in Font Awesome */
+  font-family: "Font Awesome 5 Free";
+  font-size: inherit;
+  font-weight: 900;
+  color: rgb(255, 138, 138); /* Customize the color as needed */
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 10px 3px #000;
+}
+.board-size-modal::before {
+  content: "\f013"; /* Unicode for the edit icon in Font Awesome */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+.header {
+  margin-top: 24px;
+  font-weight: 600;
+  font-size: 48px;
+  color: #fee;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+.list-container {
+  margin-bottom: 20px;
+}
+.user-tools {
+  /* border: solid orange 5px; */
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  background-color: #ffffff0c;
+  border-radius: 5px;
+  padding: 100px 16px 80px;
+  text-align: left;
+}
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.game-container {
+  display: flex;
+  justify-content: center;
+}
+.curtain-shadow {
+  background-color: #00000080;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer {
+  background: #00000069;
+  height: 80px;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+.board {
+  border: 4px solid #b1fcfc;
+  border-radius: 5px;
+  box-shadow: 0 0 80px #00ffff, inset 0 0 25px #00ffff;
+  padding: 8px;
+  border-collapse: separate;
+  border-spacing: 8px; /* Adjust the value as needed */
+  box-sizing: border-box;
+}
+
+td {
+  font-size: 1.2rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 5px;
+}
+.hidden {
+  border: 3px solid #f9abf7;
+  box-shadow: 0 0 25px #ff00f7, inset 0 0 15px #ff00f7;
+  background-image: radial-gradient(#ff00f792, #ffffff84);
+}
+.cell-safe {
+  border: 3px solid #ffff20;
+  box-shadow: 0 0 10px #ffff20, inset 0 0 10px #ffff20;
+  background-image: radial-gradient(#ffff20, #ffffff84);
+}
+.cell-edit {
+  border: 3px solid #39ff14;
+  box-shadow: 0 0 10px #39ff14, inset 0 0 10px #39ff14;
+  background-image: radial-gradient(#39ff14, #ffffff84);
+}
+.cell-show {
+  border: 3px solid #b3b3b3;
+  box-shadow: 0 0 10px #b3b3b3, 0px 0px 0px 0px #b3b3b3;
+  background-image: radial-gradient(#000000, #000000);
+  color: rgb(150, 185, 185);
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #0f8600, 0 0 0.5em #0f8600,
+    0 0 0.1em #0f8600;
+}
+.cell-marked {
+  border: 3px solid #ffff20;
+  box-shadow: 0 0 10px #ffff20, 0 0 0 0 #ffff20;
+  color: #ffff20;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ffff00, 0 10px 3px #000;
+  background-image: radial-gradient(#000000, #000000);
+}
+.cell-marked::before {
+  content: "\f024"; /* Unicode for the flag icon in Font Awesome */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600; /* Required for solid icons */
+  color: #ffff20;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ffff20, 0 10px 3px #000;
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: #202020;
+  height: 100vh;
+  width: 100vw;
+}
+.modal {
+  height: 450px;
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  font-size: 1.5rem;
+  padding: 2.5rem;
+}
+.modal-btns {
+  font-size: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.approve-btn {
+  font-weight: 900; /* Required for solid icons */
+  color: #39ff14; /* Customize the color as needed */
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #39ff14, 0 10px 3px #000;
+}
+.decline-btn {
+  font-weight: 900; /* Required for solid icons */
+  color: #ff4444; /* Customize the color as needed */
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 10px 3px #000;
+}
+
+.hide-modal {
+  display: none;
+}
